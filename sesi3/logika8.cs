@@ -11,22 +11,25 @@ public class Logika8
         Console.Write("Operasi: ");
         char op = char.Parse(Console.ReadLine());
         int i = 1;
+
         int tmp = a;
         do
         {
+            int hasil = 0;
             switch (op)
             {
+
                 case '+':
-                    a += tmp;
+                    Console.WriteLine($"angka = {a} : {hasil = a + tmp}");
                     break;
                 case '-':
-                    a -= tmp;
+                    Console.WriteLine($"angka = {a} : {hasil = a -= tmp}");
                     break;
                 case '*':
-                    a *= tmp;
+                    Console.WriteLine($"angka = {a} : {hasil = a *= tmp}");
                     break;
             }
-            Console.WriteLine($"i = {i} : {a}");
+
             i++;
             a++;
         } while (a <= b);
