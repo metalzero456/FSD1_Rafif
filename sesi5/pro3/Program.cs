@@ -24,6 +24,7 @@ namespace pro3
                         tempur.nama = Console.ReadLine();
                         Console.Write($"Masukan ketinggian terbang: ");
                         tempur.Ketinggian = int.Parse(Console.ReadLine());
+                        Console.WriteLine($"-----------------------------");
                         tempur.Terbang();
                         break;
                     case 2:
@@ -32,6 +33,7 @@ namespace pro3
                         string nama = Console.ReadLine();
                         Console.Write($"Masukan nomor hp anda: ");
                         int notelp = int.Parse(Console.ReadLine());
+                        Console.WriteLine($"-----------------------------");
                         datanew.print(nama);
                         datanew.print(notelp);
                         break;
@@ -41,9 +43,11 @@ namespace pro3
                         int bil1 = int.Parse(Console.ReadLine());
                         Console.Write($"Masukan Bilangan 2: ");
                         int bil2 = int.Parse(Console.ReadLine());
+                        Console.WriteLine($"-----------------------------");
                         bilangan.Bilangan(bil1, bil2);
                         bilangan.PenjumlahanPerkalian();
                         bilangan = new Bilangan2();
+                        Console.WriteLine($"-----------------------------");
                         bilangan.Bilangan(bil1, bil2);
                         bilangan.PenjumlahanPerkalian();
                         break;
