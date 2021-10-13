@@ -27,6 +27,4 @@ public class Data4
             Console.WriteLine();
         }
     }
-
-
 }
