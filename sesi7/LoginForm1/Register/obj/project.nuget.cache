@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "tat3Pdo0XjmpQLAWihkEXMJEdQnPyDNSRJKNczNm3VkufeRmCjBgYGqMERludh4NGui5ZXDgtrWrXCsya529Kw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Rafif\\Desktop\\OCBC Course\\Kodingan\\sesi7\\LoginForm1\\Register\\Register.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Rafif\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.20\\microsoft.netcore.app.host.win-x64.3.1.20.nupkg.sha512"
+  ],
+  "logs": []
+}
