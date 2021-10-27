@@ -1,0 +1,25 @@
+<app-add-todo-form (addTodoEvent)="addTodo($event)"></app-add-todo-form>
+<div class="fs-6 text-center {{(todos[0] ? 'd-none' : '')}}">No Activities to do :(</div>
+<ol *ngFor="let todo of todos let i = index;" class="list-group w-100">
+    <li class="list-group-item d-flex justify-content-between align-items-start {{(todo.editing ? 'd-none' : '')}}">
+        <div class="ms-2 me-auto">
+            <div class="content {{(todo.completed ? 'done' : '')}}">
+                {{i+1}}. {{todo.content}}
+            </div>
+        </div>
+        <button class="btn btn-sm completed {{(todo.completed ? 'btn-success' : 'btn-warning')}}"
+            (click)="toggleDone(i)">
+            <i class="bi bi-check-circle"></i>
+        </button>
+        <button class="btn btn-primary btn-sm ms-2" (click)=changeStatus(i)>
+            <i class="bi bi-brush-fill"></i>
+        </button>
+        <button class="btn btn-danger btn-sm ms-2" (click)="deleteTodo(i)">
+            <i class="bi bi-trash-fill"></i>
+        </button>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-start {{(todo.editing ? '' : 'd-none')}}">
+        <app-edit-todo-form (editTodoEvent)="editTodo(i, $event)" [message]="todo.content" class="container-fluid">
+        </app-edit-todo-form>
+    </li>
+</ol>
