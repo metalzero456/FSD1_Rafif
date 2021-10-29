@@ -15,7 +15,11 @@ export class AddTodoFormComponent implements OnInit {
   isSubmitted: boolean = false;
 
   todoData = new FormGroup({
-    todo: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    todo: new FormControl('', [
+      Validators.required,
+      Validators.minLength(3),
+      Validators.maxLength(100),
+    ]),
   });
 
   get todo() {
@@ -27,7 +31,6 @@ export class AddTodoFormComponent implements OnInit {
       content: this.inputTodo,
       completed: false,
     };
-
     this.addTodoEvent.emit(todo);
     this.inputTodo = '';
   }
