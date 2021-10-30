@@ -1,6 +1,7 @@
-# CountryApp
+# CountryApp with Routing
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.11.
+Country App of Assignment 5 with added functionality of Routing and Service
 
 ## Development server
 
