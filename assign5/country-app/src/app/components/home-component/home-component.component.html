@@ -1,0 +1,32 @@
+<div class="div container-fluid">
+    <h4 class="text-center mt-3">Three Most Populated Countries</h4>
+    <div class="d-flex flex-column flex-sm-row justify-content-center pt-3 mb-5">
+        <div *ngFor="let country of countriesByPopulation let i = index" class="d-flex justify-content-center">
+            <button *ngIf="i < 3" class="btn country me-3 mt-3" [routerLink]="['/country-detail/', country.id]">
+                <p class="fs-3">{{country.name}}</p>
+                <p class="fs-6">{{country.population | number}}</p>
+                <p class="fs-6">People</p>
+            </button>
+        </div>
+    </div>
+    <h4 class="text-center mt-3">Three Largest Countries by Area</h4>
+    <div class="d-flex flex-column flex-sm-row justify-content-center pt-3 mb-5">
+        <div *ngFor="let country of countriesByArea let i = index" class="d-flex justify-content-center">
+            <button *ngIf="i < 3" class="btn country me-3 mt-3" [routerLink]="['/country-detail/', country.id]">
+                <p class="fs-3">{{country.name}}</p>
+                <p class="fs-6">{{country.area | number}}</p>
+                <p class="fs-6">KM<sup>2</sup></p>
+            </button>
+        </div>
+    </div>
+    <h4 class="text-center mt-3">Three Highest GDP Countries</h4>
+    <div class="d-flex flex-column flex-sm-row justify-content-center pt-3">
+        <div *ngFor="let country of countriesByGDP let i = index" class="d-flex justify-content-center">
+            <button *ngIf="i < 3" class="btn country me-3 mt-3" [routerLink]="['/country-detail/', country.id]">
+                <p class="fs-3">{{country.name}}</p>
+                <p class="fs-6">{{country.gdp | number}}</p>
+                <p class="fs-6">USD</p>
+            </button>
+        </div>
+    </div>
+</div>

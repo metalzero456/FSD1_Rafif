@@ -1,0 +1,12 @@
+div.card-country{
+    border: 4px solid orangered;
+    color: black;
+}
+
+img.card-img-top{
+    border-bottom: 4px solid orangered
+}
+
+span{
+    color: teal;
+}

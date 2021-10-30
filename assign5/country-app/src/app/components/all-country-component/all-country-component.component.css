@@ -1,0 +1,15 @@
+table.table-orange{
+    background: orangered;
+    color: white;
+    border-radius: 10px;
+    
+}
+
+table th.clickable{
+    cursor: pointer;
+}
+
+table th.clickable:hover{
+    background: orange;
+    border-radius: 10px 10px 0 0;
+}

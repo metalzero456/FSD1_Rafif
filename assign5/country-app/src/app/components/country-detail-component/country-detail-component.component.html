@@ -1,0 +1,13 @@
+<div class="d-flex justify-content-center mt-5">
+    <div class="card card-country" style="width: 18rem;">
+        <img [src]="country.image" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{country.name}}</h5>
+            <p class="card-text"><span class="desc-text">Capital:</span> {{country.capital}}</p>
+            <p class="card-text"><span class="desc-text">Total Area:</span> {{country.area | number}} Km<sup>2</sup></p>
+            <p class="card-text"><span class="desc-text">Population:</span> {{country.population | number}} People</p>
+            <p class="card-text"><span class="desc-text">GDP:</span> {{country.gdp | number}} USD</p>
+            <p class="card-text"><span class="desc-text">Currency:</span> {{country.currency}}</p>
+        </div>
+    </div>
+</div>
