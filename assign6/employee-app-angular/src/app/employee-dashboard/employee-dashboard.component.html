@@ -1,0 +1,150 @@
+<div class="container mt-5">
+    <button class="btn btn-primary" (click)="open(mymodalAdd)">Add Employee</button>
+    <table class="table table-striped mt-2">
+        <thead class="table-purple">
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Title</th>
+                <th scope="col">Email</th>
+                <th scope="col">Role</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employees let i = index">
+                <td>{{employee.firstName}} {{employee.lastName}}</td>
+                <td>{{employee.title}}</td>
+                <td>{{employee.email}}</td>
+                <td>{{employee.role}}</td>
+                <td class="d-flex justify-content-end">
+                    <a class="btn btn-success me-2" (click)="open(mymodalUpdate);  setEditedIndex(i)">Edit</a>
+                    <a class="btn btn-danger" (click)="deleteEmployee(employee.id)">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Add Employee Modal -->
+    <ng-template #mymodalAdd let-modal>
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Add Employee</h4>
+            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            </button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="addEmployeeForm" (ngSubmit)="addEmployee()">
+                <div class="mb-3">
+                    <label for="InputFirstName" class="form-label">First Name</label>
+                    <input type="text" class="form-control" id="InputFirstName" formControlName="firstName">
+                    <span *ngIf="firstName && firstName.touched && firstName.invalid" style="color:red">First Name is
+                        required</span>
+                </div>
+                <div class="mb-3">
+                    <label for="InputLastName" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" id="InputLastName" formControlName="lastName">
+                    <span *ngIf="lastName && lastName.touched && lastName.invalid" style="color:red">Last Name is
+                        required</span>
+                </div>
+                <div class="mb-3">
+                    <label for="InputTitle" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="InputTitle" formControlName="title">
+                    <span *ngIf="title && title.touched && title.invalid" style="color:red">Title is
+                        required</span>
+                </div>
+                <div class="mb-3">
+                    <label for="roleSelect" class="form-label">Role</label>
+                    <select class="form-select" aria-label="Default select example" id="roleSelect"
+                        formControlName="role">
+                        <option value="0">Admin</option>
+                        <option value="1">User</option>
+                    </select>
+                    <span *ngIf="role && role.touched && role.invalid" style="color:red">Role is
+                        required</span>
+                </div>
+                <div class="mb-3">
+                    <label for="InputEmail" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="InputEmail" formControlName="email">
+                    <span *ngIf="email && email.touched && email.invalid" style="color:red">Email is required and must
+                        be correct format</span>
+                </div>
+                <div class="mb-3">
+                    <label for="inputPassword" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="inputPassword" formControlName="password">
+                    <span *ngIf="password && password.touched && password.invalid" style="color:red">Password is
+                        required and minimal of 5 characters</span>
+                </div>
+                <div class="mb-3">
+                    <label for="confirmPassword" class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control" id="confirmPassword" formControlName="confirmPassword">
+                    <!-- <span *ngIf="confirmPassword && confirmPassword.touched" style="color:red">Password not
+                        matched</span> -->
+                    <div *ngIf="confirmPassword?.hasError('matching')" style="color:red">
+                        Confirm Password does not match
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-outline-primary" [disabled]="addEmployeeForm.invalid"
+                        (click)="modal.close('Save click')">Add</button>
+                </div>
+            </form>
+        </div>
+
+    </ng-template>
+
+    <!-- Edit Employee Modal -->
+    <ng-template #mymodalUpdate let-modal>
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Edit Employee</h4>
+            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            </button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="editEmployeeForm" (ngSubmit)="editEmployee(employees[editedIndex].id)">
+                <div class="mb-3">
+                    <label for="InputFirstName" class="form-label">First Name</label>
+                    <input type="text" class="form-control" id="InputFirstName" formControlName="firstName"
+                        [ngModel]="employees[editedIndex].firstName">
+                    <span *ngIf="firstName && firstName.touched && firstName.invalid" style="color:red">First Name is
+                        required</span>
+                </div>
+                <div class="mb-3">
+                    <label for="InputLastName" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" id="InputLastName" formControlName="lastName"
+                        [ngModel]="employees[editedIndex].lastName">
+                    <span *ngIf="lastName && lastName.touched && lastName.invalid" style="color:red">Last Name is
+                        required</span>
+                </div>
+                <div class="mb-3">
+                    <label for="InputTitle" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="InputTitle" formControlName="title"
+                        [ngModel]="employees[editedIndex].title">
+                    <span *ngIf="title && title.touched && title.invalid" style="color:red">Title is
+                        required</span>
+                </div>
+                <div class="mb-3">
+                    <label for="roleSelect" class="form-label">Role</label>
+                    <select class="form-select" aria-label="Default select example" id="roleSelect"
+                        formControlName="role">
+                        <!-- <option selected>Select Role...</option> -->
+                        <option value="0">Admin</option>
+                        <option value="1">User</option>
+                    </select>
+                    <span *ngIf="role && role.touched && role.invalid" style="color:red">Role is
+                        required</span>
+                </div>
+                <div class="mb-3">
+                    <label for="InputEmail" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="InputEmail" formControlName="email"
+                        [ngModel]="employees[editedIndex].email">
+                    <span *ngIf="email && email.touched && email.invalid" style="color:red">Email is required and must
+                        be correct format</span>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-outline-success" [disabled]="editEmployeeForm.invalid"
+                        (click)="modal.close('Save click')">Edit</button>
+                </div>
+            </form>
+        </div>
+
+    </ng-template>
+</div>
