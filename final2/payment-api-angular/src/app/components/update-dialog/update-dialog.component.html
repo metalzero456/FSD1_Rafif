@@ -1,0 +1,49 @@
+<h2 mat-dialog-title>Update Customer Card</h2>
+<mat-dialog-content>
+    <form [formGroup]="updatePaymentForm" (ngSubmit)="updatePayment(data.paymentId)">
+        <div>
+            <span>Card Owner Name</span>
+            <mat-form-field appearance="outline" class="field-block">
+                <mat-label>Insert Card Owner Name</mat-label>
+                <input matInput placeholder="Full Name" formControlName="cardOwnerName" [ngModel]="data.cardOwnerName">
+                <mat-error>{{getErrorMessageOwner()}}</mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <span>Card Number</span>
+            <mat-form-field appearance="outline" class="field-block">
+                <mat-label>Insert Card Number</mat-label>
+                <input matInput placeholder="16 Digit Card Number" formControlName="cardNumber"
+                    [ngModel]="data.cardNumber">
+                <mat-error>{{getErrorMessageNumber()}}</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="flex-container field">
+            <div class="field-inline">
+                <span>Security Code</span>
+                <mat-form-field appearance="outline" class="field-block">
+                    <mat-label>Insert Security Code</mat-label>
+                    <input matInput placeholder="Security Code" formControlName="securityCode"
+                        [ngModel]="data.securityCode">
+                    <mat-error>{{getErrorMessageSecurity()}}</mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <span>Valid Through</span>
+                <mat-form-field appearance="outline" class="field-block">
+                    <mat-label>Insert Expiry Date</mat-label>
+                    <input matInput [matDatepicker]="picker" placeholder="MM/YY" formControlName="expirationDate"
+                        [ngModel]="data.expirationDate">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-error>{{getErrorMessageDate()}}</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="button-group">
+            <button mat-raised-button class="action-button" mat-dialog-close>Cancel</button>
+            <button mat-raised-button color="primary" class="action-button" type="submit"
+                [disabled]="updatePaymentForm.invalid" mat-dialog-close="true">Update Card Data</button>
+        </div>
+    </form>
+</mat-dialog-content>

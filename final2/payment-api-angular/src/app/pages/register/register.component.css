@@ -1,0 +1,25 @@
+.container{
+    padding-left: 15%;
+    padding-right: 15%;
+    margin-top: 3%;
+}
+
+.field-block {
+    display: block;
+}
+
+.field-inline {
+    margin-right: 10px;
+}
+
+.flex-container.field {
+    display: flex;
+}
+
+.action-button{
+    margin-right: 10px;
+}
+
+.button-group {
+    margin-top: 20px;
+}

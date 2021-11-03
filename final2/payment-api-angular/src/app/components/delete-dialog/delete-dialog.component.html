@@ -1,0 +1,11 @@
+<h2 mat-dialog-title>Delete Customer Card</h2>
+<mat-dialog-content>
+    <span class="mat-h3">Are you sure you want to delete?<br></span>
+    <p>Card Owner : <br><span class="mat-body-strong mat-h3">{{data.cardOwnerName}}</span></p>
+    <p>Card Number : <br><span class="mat-body-strong mat-h3">{{data.cardNumber}}</span></p>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-raised-button mat-dialog-close>Cancel</button>
+    <button mat-raised-button color="warn" (click)="deletePayment(data.paymentId)"
+        mat-dialog-close="true">Delete</button>
+</mat-dialog-actions>

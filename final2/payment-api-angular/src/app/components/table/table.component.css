@@ -1,0 +1,18 @@
+table {
+    width: 70vw;
+    margin-top: 20px;
+}
+
+td.action-column {
+    width: 5%;
+}
+
+#search-bar{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+}
